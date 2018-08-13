@@ -49,7 +49,6 @@
 		$this_page_first_result=($page-1)*$results_per_page;
 		$sql="select uname,pic_path,type from details where type='user' limit ". $this_page_first_result .",".$results_per_page;
 		$result=$mysqli->query($sql);
-
 		echo "<table border='1' align='center'><tr><th>Profile Picture</th><th><a href='sort.php'>Name</a></th><th colspan=3>Options</th></tr>";
 		while ($row=$result->fetch_assoc()) {
 			//if ($row['type']=="user") {

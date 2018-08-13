@@ -5,7 +5,9 @@
 ?>
 <?php
 	$view=base64_decode(urldecode($_GET['view']));
+	//echo $view;
 	$sql="select * from details where uname="."'".$view."';";
+	//echo $sql;
 	$result=$mysqli->query($sql);
 	while ($row=$result->fetch_assoc()) {
 		$fname=$row['fname'];

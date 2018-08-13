@@ -1,6 +1,17 @@
 <?php
 	session_start();
 	include 'db.php';
+
+		if(!empty($_SESSION)){
+			//var_dump($_SESSION);
+			if ($_SESSION['type']=="admin") {
+				header("location:listing.php");
+			}elseif($_SESSION['type']=="user"){
+				$sess_name=urlencode(base64_encode($_SESSION['name']));
+			header("location:view.php?view=$sess_name");
+				}
+		}
+	
 	if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit'])) {
 		$errors=array();
 		if (empty($_POST['luname'])) {
@@ -39,6 +50,8 @@
 				}
 			}	
 	}
+
+
 ?>
 
 <!DOCTYPE html>
